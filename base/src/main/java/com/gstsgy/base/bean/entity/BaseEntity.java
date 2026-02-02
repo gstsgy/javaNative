@@ -1,22 +1,27 @@
 package com.gstsgy.base.bean.entity;
 
-import org.babyfish.jimmer.sql.*;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.SoftDelete;
+@Data
+@SoftDelete(columnName = "is_del") // 核心注解
 @MappedSuperclass
-public  interface BaseEntity {
+public  class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id();
+    private Long id;
 
-    String insertYmd();//
+    private String insertYmd;//
 
-     Long insertId();//
+    private Long insertId;//
 
-     String updateYmd();//
+    private String updateYmd;//
 
-     Long updateId();
-    @LogicalDeleted("false")
-    boolean effective();//
+    private  Long updateId;
+
+    //private  boolean is_del;//
      @Version
-     int updateFlag();//
+     private  int updateFlag;//
 
 }

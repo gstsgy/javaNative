@@ -1,9 +1,11 @@
 package com.gstsgy.webapi;
 
-import org.babyfish.jimmer.sql.EnableDtoGeneration;
+import com.gstsgy.webapi.conf.SqliteNativeHints;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportRuntimeHints;
 
+@ImportRuntimeHints(SqliteNativeHints.class)
 @SpringBootApplication
 public class App {
 

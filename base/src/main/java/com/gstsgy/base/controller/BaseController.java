@@ -52,11 +52,13 @@ public abstract class BaseController<S extends BaseService<T >, T extends BaseEn
 
     @DeleteMapping("item")
     public ResponseBean deleteById(Long id) {
-        return ResponseBean.getSuccess(service.deleteById(id));
+        service.deleteById(id);
+        return ResponseBean.getSuccess(true);
     }
 
     @DeleteMapping("items")
     public ResponseBean deleteByIds(List<Long> ids) {
-        return ResponseBean.getSuccess(service.deleteByIds(ids));
+        service.deleteByIds(ids);
+        return ResponseBean.getSuccess(true);
     }
 }

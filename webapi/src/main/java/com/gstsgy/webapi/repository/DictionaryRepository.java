@@ -1,7 +1,7 @@
 package com.gstsgy.webapi.repository;
 
 import com.gstsgy.webapi.bean.Dictionary;
-import org.babyfish.jimmer.spring.repository.JRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DictionaryRepository extends JRepository<Dictionary, Long> {
+public interface DictionaryRepository extends JpaRepository<Dictionary, Long> {
 }

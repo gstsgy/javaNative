@@ -4,16 +4,16 @@ import java.util.List;
 
 import com.gstsgy.base.bean.dto.PageQueryVO;
 import com.gstsgy.base.bean.entity.BaseEntity;
-import org.babyfish.jimmer.Page;
+import org.springframework.data.domain.Page;
 
 public interface BaseService<T extends BaseEntity> {
     T saveOne(T obj);
 
     List<T> batchSave(List<T> objs);
 
-    boolean deleteById(Long id);
+    void deleteById(Long id);
 
-    boolean deleteByIds(List<Long> ids);
+    void deleteByIds(List<Long> ids);
 
     T queryOneById(Long id);
 

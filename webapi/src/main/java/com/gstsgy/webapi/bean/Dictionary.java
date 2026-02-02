@@ -2,18 +2,22 @@ package com.gstsgy.webapi.bean;
 
 
 import com.gstsgy.base.bean.entity.BaseEntity;
-import org.babyfish.jimmer.sql.*;
-@EnableDtoGeneration
+import jakarta.persistence.Entity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-public interface Dictionary  extends BaseEntity {
-    String modelCode();
+public class Dictionary  extends BaseEntity {
+    private String modelCode;
 
-    String dictKey();
+    private String dictKey;
 
-    String dictValue();
+    private String dictValue;
 
-    Integer seq();
+    private Integer seq;
 
-    Long parentId();
+    private Long parentId;
 }
 
