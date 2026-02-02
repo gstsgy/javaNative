@@ -1,10 +1,16 @@
 package com.gstsgy.base.service.impl;
 
+import java.awt.print.Book;
 import java.util.List;
 
 import com.gstsgy.base.bean.dto.PageQueryVO;
 import com.gstsgy.base.bean.entity.BaseEntity;
 import org.babyfish.jimmer.Page;
+import org.babyfish.jimmer.Specification;
+import org.babyfish.jimmer.meta.ImmutableProp;
+import org.babyfish.jimmer.meta.ImmutableType;
+import org.babyfish.jimmer.meta.TargetLevel;
+import org.babyfish.jimmer.runtime.ImmutableSpi;
 import org.babyfish.jimmer.spring.repository.JRepository;
 import org.babyfish.jimmer.sql.ast.mutation.DeleteMode;
 import org.babyfish.jimmer.sql.ast.mutation.SaveMode;
@@ -47,8 +53,33 @@ public abstract  class BaseServiceImpl<T extends BaseEntity,M extends JRepositor
 
     @Override
     public List<T> query(T obj) {
-//        QueryWrapper<T> queryWrapper = buildQueryWrapper(obj);
-//        return mapper.selectList(queryWrapper);
+        Specification<T> spec = (it, query) -> {
+            // 将对象转为 SPI 接口以便访问底层数据
+            ImmutableSpi spi = (ImmutableSpi) obj;
+            ImmutableType type = spi.__type();
+
+            // 遍历该实体的所有属性
+            for (ImmutableProp prop : type.getProps().values()) {
+                // 只处理普通字段（标量字段），跳过关联集合等
+                if (prop.isScalar(TargetLevel.ENTITY) && spi.__isLoaded(prop.getId())) {
+                    Object value = spi.__get(prop.getId());
+
+                    if (value != null) {
+                        if (value instanceof String && !((String) value).isEmpty()) {
+                            // 字符串默认模糊查询
+                            //it.where(it.get(prop.getName()).like((String) value));
+                        } else {
+                            // 其他类型（Long, Integer等）精确查询
+                           // it.where(it.get(prop.getName()).eq(value));
+                        }
+                    }
+                }
+            }
+        };
+//
+//
+//        // 2. 调用 JRepository
+//        return repository.findAll(spec);
         return null;
     }
 

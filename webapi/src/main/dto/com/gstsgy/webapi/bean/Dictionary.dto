@@ -1,0 +1,12 @@
+export com.gstsgy.webapi.bean.Dictionary
+-> package com.gstsgy.webapi.bean.dto
+
+//# 定义用于查询的 Specification DTO
+specification DictionarySpec {
+    #allScalars
+}
+
+//# 定义用于保存/更新的 Input DTO (可选，用于替代直接传 Entity)
+input DictionaryInput {
+    #allScalars
+}

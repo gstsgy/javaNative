@@ -1,5 +1,6 @@
 package com.gstsgy.webapi;
 
+import org.babyfish.jimmer.sql.EnableDtoGeneration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

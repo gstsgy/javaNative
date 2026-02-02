@@ -3,7 +3,7 @@ package com.gstsgy.webapi.bean;
 
 import com.gstsgy.base.bean.entity.BaseEntity;
 import org.babyfish.jimmer.sql.*;
-
+@EnableDtoGeneration
 @Entity
 public interface Dictionary  extends BaseEntity {
     String modelCode();
