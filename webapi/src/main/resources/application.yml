@@ -1,0 +1,57 @@
+spring:
+  profiles:
+    active: dev
+  batch:
+    job:
+      enabled: true
+    jdbc:
+      initialize-schema: always
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    # 数据库文件路径。file:data.db 表示在项目根目录下创建 data.db 文件
+    url: jdbc:sqlite:file:/data/pro/t2/webapi/src/main/resources/db
+    username: admin  # SQLite 默认不需要用户名，但某些驱动要求占位
+    password: ""
+    #   数据源基本配置
+    #    url: jdbc:sqlserver://192.168.1.106:1433;DatabaseName=dtwqd;TrustServerCertificate=True
+    #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    username: sa
+    #    password: suray2020.
+    #    druid:
+    #      transaction-query-timeout: 50
+    #    url: jdbc:mysql://mysql.sqlpub.com:3306/gstsgy?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true&rewriteBatchedStatements=true
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    username: gstsgy
+    #    password: 'mO3iTn3woSa08sHi'
+    #primary:
+    #initialization-mode: always # 确保数据源初始化模式为always
+    # url: jdbc:mysql://111.229.194.36:33106/guyue?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true&rewriteBatchedStatements=true
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    # username: root
+    # password: 'Zhunxun@Sjj635'
+#    url: jdbc:mysql://mysql.sqlpub.com:3306/gstsgy?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true&rewriteBatchedStatements=true
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: gstsgy
+#    password: 'mO3iTn3woSa08sHi'
+    # secondary:
+    #   url: jdbc:mysql://mysql.sqlpub.com:3306/gstsgy?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true&rewriteBatchedStatements=true
+    #   driver-class-name: com.mysql.cj.jdbc.Driver
+    #   username: gstsgy
+    #   password: 'mO3iTn3woSa08sHi'
+
+  #     druid:
+  #       validation-query: select 1
+
+jimmer:
+  show-sql: true # 建议开启以观察 SQL 是否正确转换
+  pretty-sql: true
+  # 直接指定为下划线小写策略
+  #database-naming-strategy: org.babyfish.jimmer.sql.runtime.DefaultDatabaseNamingStrategy.LOWER_CASE
+
+
+
