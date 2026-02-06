@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.gstsgy.base.bean.dto.PageQueryVO;
 import com.gstsgy.base.bean.dto.ResponseBean;
-import com.gstsgy.base.bean.entity.BaseEntity;
+import com.gstsgy.base.bean.db.BaseTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.gstsgy.base.service.BaseService;
 
-public abstract class BaseController<S extends BaseService<T >, T extends BaseEntity> {
+public abstract class BaseController<S extends BaseService<T >, T extends BaseTable> {
 
     @Autowired
     protected S service;

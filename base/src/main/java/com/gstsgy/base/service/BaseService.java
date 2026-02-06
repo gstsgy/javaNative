@@ -3,10 +3,10 @@ package com.gstsgy.base.service;
 import java.util.List;
 
 import com.gstsgy.base.bean.dto.PageQueryVO;
-import com.gstsgy.base.bean.entity.BaseEntity;
+import com.gstsgy.base.bean.db.BaseTable;
 import org.springframework.data.domain.Page;
 
-public interface BaseService<T extends BaseEntity> {
+public interface BaseService<T extends BaseTable> {
     T saveOne(T obj);
 
     List<T> batchSave(List<T> objs);

@@ -1,7 +1,7 @@
 package com.gstsgy.base.repository;
 
-import com.gstsgy.base.bean.entity.BaseEntity;
+import com.gstsgy.base.bean.db.BaseTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BaseRepository extends JpaRepository<BaseEntity, Long> {
+public interface BaseRepository extends JpaRepository<BaseTable, Long> {
 }

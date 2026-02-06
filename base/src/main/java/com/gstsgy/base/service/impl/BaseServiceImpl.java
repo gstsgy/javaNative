@@ -2,14 +2,14 @@ package com.gstsgy.base.service.impl;
 
 import java.util.List;
 import com.gstsgy.base.bean.dto.PageQueryVO;
-import com.gstsgy.base.bean.entity.BaseEntity;
+import com.gstsgy.base.bean.db.BaseTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 import com.gstsgy.base.service.BaseService;
 
-public abstract  class BaseServiceImpl<T extends BaseEntity,M extends JpaRepository<T, Long>> implements BaseService<T>{
+public abstract  class BaseServiceImpl<T extends BaseTable,M extends JpaRepository<T, Long>> implements BaseService<T>{
 
     @Autowired
     protected M repository;
